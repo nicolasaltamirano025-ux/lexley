@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Del Castillo Pons — Propuesta D: Institucional</title>
+<style>
+  :root{
+    --navy:#0e2a42; --navy-deep:#0a1f33; --paper:#ffffff; --fog:#f3f6f8; --line:#e1e7eb;
+    --gold:#b1872f; --gold-dark:#8f6b22; --ink:#1c2933; --soft:#5b6873;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;}
+  .serif{font-family:Georgia,"Palatino Linotype",serif;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  h1,h2,h3{text-wrap:balance;margin:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px;}
+  @media(max-width:760px){.wrap{padding:0 24px;}}
+
+  /* PHOTO PLACEHOLDER */
+  .ph{background:repeating-linear-gradient(135deg, var(--fog) 0 12px, #eaeff2 12px 24px);border:1px dashed #aebac2;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#7c8791;text-align:center;padding:24px;}
+  .ph svg{opacity:.55;}
+  .ph span{font-size:12px;letter-spacing:.02em;max-width:22ch;}
+
+  /* TOPBAR */
+  .topbar{background:var(--navy-deep);color:#cdd8e0;font-size:12.5px;padding:9px 0;}
+  .topbar .wrap{display:flex;justify-content:space-between;}
+  .topbar a:hover{color:#fff;}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;}
+  .nav .word{font-weight:800;font-size:16px;letter-spacing:.01em;color:var(--navy);}
+  .nav .links{display:flex;gap:28px;font-size:13.5px;color:var(--soft);font-weight:500;}
+  .nav .links a:hover{color:var(--navy);}
+  .nav .cta{background:var(--navy);color:#fff;border:none;padding:11px 22px;font-size:13px;font-weight:700;}
+  .nav .cta:hover{background:var(--navy-deep);}
+  @media(max-width:920px){.nav .links{display:none;}}
+
+  /* HERO */
+  .hero{background:var(--navy);color:#eef2f5;}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:52px;align-items:center;padding:84px 48px;}
+  .kicker{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#c9a45f;margin-bottom:18px;}
+  .hero h1{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.14;margin-bottom:20px;}
+  .hero p.sub{font-size:16px;line-height:1.65;color:#b9c5cd;max-width:48ch;margin-bottom:28px;}
+  .motto{border-left:2px solid var(--gold);padding-left:16px;margin-bottom:32px;}
+  .motto p{font-family:Georgia,serif;font-style:italic;font-size:14.5px;color:#d7cba3;margin:0;}
+  .motto span{display:block;font-size:11.5px;color:#8fa0aa;margin-top:4px;font-style:normal;}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{background:var(--gold);color:#1c1404;border:none;padding:14px 26px;font-size:14px;font-weight:700;}
+  .btn-primary:hover{background:var(--gold-dark);}
+  .btn-ghost{border:1px solid #4b6376;color:#eef2f5;padding:14px 26px;font-size:14px;}
+  .btn-ghost:hover{border-color:#eef2f5;}
+  .hero .ph{aspect-ratio:4/5;background:repeating-linear-gradient(135deg, #123350 0 12px, #0f2c47 12px 24px);border-color:#33526a;color:#9fb2bf;}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding:56px 24px;}}
+
+  /* COUNTERS */
+  .counters{background:var(--paper);border-bottom:1px solid var(--line);}
+  .counters .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding:34px 48px;}
+  .counter{text-align:center;border-right:1px solid var(--line);padding:0 10px;}
+  .counter:last-child{border-right:none;}
+  .counter .n{font-size:30px;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;}
+  .counter .l{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.04em;margin-top:6px;}
+  @media(max-width:760px){.counters .wrap{grid-template-columns:1fr 1fr;gap:20px;padding:28px 24px;}.counter{border-right:none;}}
+
+  .section{padding:88px 0;}
+  .section.alt{background:var(--fog);}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 48px;}
+  .sec-head .eyebrow{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px;}
+  .sec-head h2{font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--navy);}
+  .sec-head p{font-size:14.5px;color:var(--soft);margin-top:10px;}
+
+  /* NOSOTROS */
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;}
+  .about-grid .ph{aspect-ratio:4/3;}
+  .about-copy h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:14px;}
+  .about-copy p{font-size:15.5px;line-height:1.7;color:var(--soft);}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+
+  /* VALUES */
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .value{background:var(--paper);padding:28px 24px;}
+  .value .n{font-family:Georgia,serif;font-size:26px;color:var(--gold-dark);margin-bottom:10px;}
+  .value h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .value p{font-size:13px;color:var(--soft);margin:0;line-height:1.55;}
+  @media(max-width:760px){.values{grid-template-columns:1fr 1fr;}}
+
+  /* PRACTICE */
+  .practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .practice-card{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--navy);padding:28px;}
+  .practice-card h3{font-size:17.5px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+  .practice-card p{font-size:14px;color:var(--soft);line-height:1.6;margin:0 0 12px;}
+  .practice-card ul{margin:0;padding-left:18px;font-size:13px;color:var(--soft);line-height:1.8;}
+  @media(max-width:760px){.practice-grid{grid-template-columns:1fr;}}
+
+  /* SPOTLIGHT */
+  .spotlight{background:var(--navy);color:#eef2f5;}
+  .spotlight .wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+  .spotlight .eyebrow{color:#c9a45f;}
+  .spotlight h2{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:18px;}
+  .spotlight ul{list-style:none;margin:0 0 28px;padding:0;font-size:14.5px;color:#c3ccd2;}
+  .spotlight ul li{padding:10px 0;border-top:1px solid #29435a;}
+  .spotlight ul li::before{content:"✓ ";color:var(--gold);font-weight:700;}
+  .spotlight .ph{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#123350 0 12px,#0f2c47 12px 24px);border-color:#33526a;color:#9fb2bf;}
+  @media(max-width:860px){.spotlight .wrap{grid-template-columns:1fr;}}
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .team-card .ph{aspect-ratio:3/4;margin-bottom:14px;}
+  .team-card h4{font-size:15.5px;font-weight:800;color:var(--navy);}
+  .team-card p{font-size:12.5px;color:var(--soft);margin-top:3px;}
+  @media(max-width:760px){.team-grid{grid-template-columns:1fr 1fr;}}
+
+  /* PROCESO */
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .step .n{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;margin-bottom:16px;}
+  .step h4{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+  .step p{font-size:13.5px;color:var(--soft);line-height:1.6;margin:0;}
+  @media(max-width:860px){.process{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.process{grid-template-columns:1fr;}}
+
+  /* CASES styled like testimonials */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .case{background:var(--paper);border:1px solid var(--line);padding:28px;position:relative;}
+  .case .mark{font-family:Georgia,serif;font-size:40px;color:var(--gold);line-height:1;margin-bottom:6px;}
+  .case p{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0 0 14px;}
+  .case .tag{font-size:11.5px;color:var(--soft);text-transform:uppercase;letter-spacing:.04em;border-top:1px solid var(--line);padding-top:12px;}
+  .cases-note{text-align:center;font-size:13px;color:var(--soft);margin-top:24px;}
+  @media(max-width:860px){.cases{grid-template-columns:1fr;}}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-size:15.5px;font-weight:700;color:var(--navy);}
+  .faq-q .plus{color:var(--gold-dark);font-size:20px;transition:transform .2s;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-item.open .faq-a{max-height:240px;}
+  .faq-a p{font-size:14px;color:var(--soft);line-height:1.6;padding-bottom:20px;margin:0;max-width:62ch;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;}
+  .channels{display:flex;flex-direction:column;gap:16px;}
+  .channel{border-top:1px solid var(--line);padding-top:12px;}
+  .channel .l{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-dark);}
+  .channel .v{font-size:15.5px;margin-top:4px;color:var(--ink);}
+  form{display:flex;flex-direction:column;gap:14px;}
+  label{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);display:block;margin-bottom:6px;}
+  input,select,textarea{width:100%;background:var(--fog);border:1px solid var(--line);padding:12px 14px;font-family:inherit;font-size:14px;color:var(--ink);}
+  textarea{min-height:110px;resize:vertical;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
+  .send{align-self:flex-start;background:var(--navy);color:#fff;border:none;padding:13px 28px;font-size:14px;font-weight:700;}
+  .send:hover{background:var(--navy-deep);}
+  .confirm{display:none;font-size:13.5px;color:var(--gold-dark);margin-top:4px;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+
+  footer{background:var(--navy-deep);color:#93a4b0;padding:48px 0 28px;}
+  footer .motto{border:none;text-align:center;margin:0 auto 32px;max-width:60ch;padding:0;}
+  footer .motto p{color:#c9b989;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:12.5px;border-top:1px solid #1f3e57;padding-top:24px;}
+  footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap"><span>Asesoría legal corporativa · Querétaro</span><a href="mailto:contacto@lexplay.mx">contacto@lexplay.mx</a></div>
+</div>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="word">DEL CASTILLO PONS</div>
+    <div class="links">
+      <a href="#nosotros">Nosotros</a><a href="#practica">Áreas de práctica</a><a href="#equipo">Equipo</a><a href="#proceso">Proceso</a><a href="#faq">Preguntas</a><a href="#contacto">Contacto</a>
+    </div>
+    <a class="cta" href="#contacto">Agendar consulta</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Despacho legal · Querétaro · Desde 2009</p>
+      <h1>Certeza jurídica para las decisiones que no admiten error.</h1>
+      <p class="sub">Diecisiete años representando empresas medianas y grandes en litigio administrativo, infraestructura portuaria y cumplimiento regulatorio.</p>
+      <div class="motto">
+        <p>"Vigilantibus non dormientibus jura succurrunt"</p>
+        <span>La ley ampara a quienes vigilan, no a quienes se duermen.</span>
+      </div>
+      <div class="actions">
+        <a class="btn-primary" href="#contacto">Agendar una consulta</a>
+        <a class="btn-ghost" href="#practica">Ver áreas de práctica</a>
+      </div>
+    </div>
+    <div class="ph">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>
+      <span>Foto de oficina o fundador — pendiente</span>
+    </div>
+  </div>
+</header>
+
+<div class="counters">
+  <div class="wrap">
+    <div class="counter"><div class="n">17 años</div><div class="l">De despacho</div></div>
+    <div class="counter"><div class="n">30 años</div><div class="l">Trayectoria del fundador</div></div>
+    <div class="counter"><div class="n">6</div><div class="l">Abogados en el equipo</div></div>
+    <div class="counter"><div class="n">Federal + Local</div><div class="l">Cobertura de materia</div></div>
+  </div>
+</div>
+
+<section class="section" id="nosotros">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="ph"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg><span>Foto de equipo u oficina — pendiente</span></div>
+      <div class="about-copy">
+        <p class="eyebrow" style="color:var(--gold-dark);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">Quiénes somos</p>
+        <h3>Litigio cuando hace falta. Cumplimiento para que no haga falta.</h3>
+        <p>Del Castillo Pons se fundó en 2009, tras años de práctica de su fundador en despachos laborales y fiscales. En un inicio, la práctica era prácticamente todo litigio. Con el tiempo —y de forma acelerada tras la reforma al Poder Judicial— el despacho se ha movido hacia el cumplimiento regulatorio preventivo, sin abandonar el litigio cuando un cliente lo necesita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Nuestros valores</p><h2>Cómo trabajamos con cada cliente</h2></div>
+    <div class="values">
+      <div class="value"><div class="n">01</div><h4>Compromiso</h4><p>Cada expediente se atiende con la misma responsabilidad, sin condicionarlo al resultado.</p></div>
+      <div class="value"><div class="n">02</div><h4>Confianza</h4><p>Relaciones construidas a lo largo de años, no transacciones de una sola vez.</p></div>
+      <div class="value"><div class="n">03</div><h4>Especialización</h4><p>Veinte años de trayectoria en la materia más compleja de nuestra práctica: concesiones portuarias.</p></div>
+      <div class="value"><div class="n">04</div><h4>Cumplimiento activo</h4><p>Seguimiento continuo de obligaciones, no solo respuesta ante contingencias.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="practica">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Nuestras áreas</p><h2>Áreas de práctica jurídica</h2><p>Litigio cuando ya hay un conflicto. Cumplimiento para que no llegue a uno.</p></div>
+    <div class="practice-grid">
+      <div class="practice-card"><h3>Litigio Administrativo</h3><p>Defensa frente al gobierno cuando la autoridad se excede en sus facultades.</p><ul><li>Multas, clausuras y revisión de predial</li><li>Devoluciones de impuestos</li><li>Evaluación realista antes de litigar</li></ul></div>
+      <div class="practice-card"><h3>Infraestructura Portuaria y Costera</h3><p>Concesiones de puertos, marinas y playas — nuestra especialidad de mayor trayectoria.</p><ul><li>Tramitología de concesiones y permisos</li><li>Zona federal marítimo-terrestre</li><li>Fideicomisos en zonas restringidas</li></ul></div>
+      <div class="practice-card"><h3>Cumplimiento Regulatorio</h3><p>Calendarización y gestión de obligaciones antes de que se conviertan en contingencias.</p><ul><li>Educación, sector laboral, datos personales</li><li>Registro de contratos ante Banxico/CNBV</li><li>Seguimiento continuo</li></ul></div>
+      <div class="practice-card"><h3>Planeación Patrimonial</h3><p>Orden documental y sucesorio para el patrimonio familiar.</p><ul><li>Revisión de escrituras, gravámenes y adeudos</li><li>Actualización testamentaria</li><li>Prevención de conflictos de sucesión</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section spotlight">
+  <div class="wrap">
+    <div>
+      <p class="kicker eyebrow">La especialidad</p>
+      <h2>Veinte años asegurando que una concesión nunca dependa de un trámite vencido.</h2>
+      <ul>
+        <li>Tramitología completa para concesiones de puertos, marinas y playas</li>
+        <li>Calendarización de seguros, fianzas, avisos y reportes de mantenimiento</li>
+        <li>Detección temprana de vencimientos, antes de un procedimiento de revocación</li>
+        <li>Trayectoria en zona federal marítimo-terrestre y fideicomisos en zonas restringidas</li>
+      </ul>
+      <a class="btn-primary" href="#contacto">Consultar sobre mi concesión</a>
+    </div>
+    <div class="ph"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg><span>Foto de marina, puerto o concesión — pendiente</span></div>
+  </div>
+</section>
+
+<section class="section alt" id="equipo">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Nuestro equipo</p><h2>Quién lleva su caso</h2></div>
+    <div class="team-grid">
+      <div class="team-card"><div class="ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg><span>Foto — pendiente</span></div><h4>León</h4><p>Fundador · Litigio y cumplimiento</p></div>
+      <div class="team-card"><div class="ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg><span>Foto — pendiente</span></div><h4>Paulina</h4><p>Abogada senior</p></div>
+      <div class="team-card"><div class="ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg><span>Foto — pendiente</span></div><h4>Rogelio</h4><p>Abogado senior</p></div>
+      <div class="team-card"><div class="ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg><span>Foto — pendiente</span></div><h4>Equipo ampliado</h4><p>Laboral, fiscal, migratorio</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proceso">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Nuestro proceso</p><h2>¿Cómo trabajamos su caso?</h2><p>Cuatro pasos simples, de la consulta al seguimiento continuo.</p></div>
+    <div class="process">
+      <div class="step"><div class="n">1</div><h4>Consulta inicial</h4><p>Platicamos su situación u obligación, sin compromiso.</p></div>
+      <div class="step"><div class="n">2</div><h4>Diagnóstico</h4><p>Opciones claras de estrategia y honorarios.</p></div>
+      <div class="step"><div class="n">3</div><h4>Ejecución</h4><p>Litigio, trámite o programa de cumplimiento.</p></div>
+      <div class="step"><div class="n">4</div><h4>Seguimiento</h4><p>Calendarización y reporte continuo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Casos representativos</p><h2>Resultados que hablan por sí solos</h2><p>Descripciones anonimizadas de asuntos reales — sustituiremos esta sección por testimonios directos de clientes en cuanto León confirme cuáles se pueden publicar.</p></div>
+    <div class="cases">
+      <div class="case"><div class="mark">"</div><p>Una concesión bajo un procedimiento de revocación por construcción no autorizada fue regularizada por completo, evitando el cierre del negocio.</p><div class="tag">Sector · Infraestructura portuaria</div></div>
+      <div class="case"><div class="mark">"</div><p>Una empresa dejó de depender de la memoria de un colaborador: hoy cada vencimiento se calendariza y se reporta con anticipación.</p><div class="tag">Sector · Cumplimiento regulatorio</div></div>
+      <div class="case"><div class="mark">"</div><p>Una clausura impuesta por la autoridad fue impugnada, permitiendo que la operación continuara sin interrupción.</p><div class="tag">Sector · Litigio administrativo</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Todo lo que necesita saber</h2></div>
+    <div>
+      <div class="faq-item"><button class="faq-q">¿Cuánto dura un litigio típico?<span class="plus">+</span></button><div class="faq-a"><p>En promedio año y medio, aunque puede variar según el tipo de asunto y la carga del juzgado correspondiente.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Cómo funcionan sus honorarios?<span class="plus">+</span></button><div class="faq-a"><p>Se cotiza caso por caso. Dependiendo del asunto, puede incluir esquemas de contingencia o tarifa fija.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Manejan materia federal y local?<span class="plus">+</span></button><div class="faq-a"><p>Sí, ambas — desde regulación federal de puertos y sectores específicos, hasta asuntos locales.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Cómo nos comunicamos durante un caso?<span class="plus">+</span></button><div class="faq-a"><p>Principalmente por correo y WhatsApp. También por videollamada y reuniones presenciales cuando el asunto lo requiere.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Solo litigan, o también previenen problemas?<span class="plus">+</span></button><div class="faq-a"><p>Ambos: litigio administrativo cuando ya existe un conflicto, y cumplimiento regulatorio para que no llegue a existir.</p></div></div>
+      <div class="faq-item"><button class="faq-q">¿Qué necesito para una primera consulta?<span class="plus">+</span></button><div class="faq-a"><p>Una breve descripción del problema u obligación, y la documentación relevante si ya la tiene a la mano.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="contacto">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Contacto</p><h2>Hablemos de su caso</h2></div>
+    <div class="contact-grid">
+      <div class="channels">
+        <div class="channel"><div class="l">Correo</div><div class="v">contacto@lexplay.mx</div></div>
+        <div class="channel"><div class="l">WhatsApp</div><div class="v">Respuesta directa, en horario de oficina</div></div>
+        <div class="channel"><div class="l">Videollamada</div><div class="v">Bajo cita, para asuntos que lo requieran</div></div>
+        <div class="channel"><div class="l">Presencial</div><div class="v">Consultas en oficina, bajo cita previa</div></div>
+      </div>
+      <form id="contactForm">
+        <div><label for="nombre">Nombre</label><input id="nombre" required></div>
+        <div><label for="correo">Correo</label><input id="correo" type="email" required></div>
+        <div><label for="area">Área de práctica</label>
+          <select id="area">
+            <option>Litigio Administrativo</option>
+            <option>Infraestructura Portuaria y Costera</option>
+            <option>Cumplimiento Regulatorio</option>
+            <option>Planeación Patrimonial</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div><label for="mensaje">Cuéntenos brevemente su situación</label><textarea id="mensaje" required></textarea></div>
+        <button class="send" type="submit">Enviar mensaje</button>
+        <p class="confirm" id="confirm">Gracias — se abrirá su cliente de correo con el mensaje listo para enviar a contacto@lexplay.mx.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="border:none;padding-top:0;">
+    <div class="motto"><p class="serif">"Vigilantibus non dormientibus jura succurrunt" — la ley ampara a quienes vigilan, no a quienes se duermen.</p></div>
+  </div>
+  <div class="wrap">
+    <div>© 2026 Del Castillo Pons · Querétaro, México</div>
+    <div><a href="#">Aviso de privacidad</a> · <a href="mailto:contacto@lexplay.mx">contacto@lexplay.mx</a></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n=document.getElementById('nombre').value, c=document.getElementById('correo').value, a=document.getElementById('area').value, m=document.getElementById('mensaje').value;
+    var body = encodeURIComponent('Nombre: '+n+'\nCorreo: '+c+'\nÁrea: '+a+'\n\n'+m);
+    window.location.href = 'mailto:contacto@lexplay.mx?subject=' + encodeURIComponent('Consulta desde el sitio web') + '&body=' + body;
+    document.getElementById('confirm').style.display = 'block';
+  });
+</script>
+</body>
+</html>
